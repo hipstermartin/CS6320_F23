@@ -1,12 +1,15 @@
-def laplace_smoothing(ngram_counts, vocab_size, k=1):
-    smoothed_counts = {}
-    N = sum(ngram_counts.values())
-    all_counts = N + k * vocab_size  # Adjusting the denominator for Laplace smoothing
-    
-    # Handling the case where the ngram isn't in the training data
-    unseen_prob = k / all_counts
-    
-    for ngram, count in ngram_counts.items():
-        smoothed_counts[ngram] = (count + k) / all_counts
+from math import log
 
-    return smoothed_counts, unseen_prob
+def adjusted_laplace_smoothing(word1, word2, unigram_freq, bigram_freq, V):
+    word1 = word1 if word1 in unigram_freq else "<UNK>"
+    word2 = word2 if word2 in unigram_freq else "<UNK>"
+    numerator = bigram_freq.get((word1, word2), 0) + 1
+    denominator = unigram_freq.get(word1, 0) + V
+    return numerator / denominator
+
+def adjusted_add_k_smoothing(word1, word2, unigram_freq, bigram_freq, V, k=1):
+    word1 = word1 if word1 in unigram_freq else "<UNK>"
+    word2 = word2 if word2 in unigram_freq else "<UNK>"
+    numerator = bigram_freq.get((word1, word2), 0) + k
+    denominator = unigram_freq.get(word1, 0) + k * V
+    return numerator / denominator
