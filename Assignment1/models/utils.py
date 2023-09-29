@@ -41,7 +41,6 @@ def calculate_perplexity(model, unseen_prob, validation_data, model_type="unigra
                 prob = model.get(trigram, unseen_prob)
                 total_log_prob += math.log(prob, 2)
 
-    # Check for zero division
     if total_tokens == 0:
         return float('inf')
 

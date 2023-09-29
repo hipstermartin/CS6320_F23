@@ -1,5 +1,3 @@
-from math import log
-
 def adjusted_laplace_smoothing(word1, word2, unigram_freq, bigram_freq, V):
     word1 = word1 if word1 in unigram_freq else "<UNK>"
     word2 = word2 if word2 in unigram_freq else "<UNK>"
