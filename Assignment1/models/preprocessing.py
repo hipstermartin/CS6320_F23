@@ -1,4 +1,6 @@
 import re
+from collections import Counter
+
 def preprocess_text(text):
     text = text.lower()
     text = re.sub(r'\d+', '<NUM>', text)
@@ -14,6 +16,12 @@ def preprocess_file(file_path):
         content = file.readlines()
     
     preprocessed_reviews = [preprocess_text(review) for review in content]
+    
+    all_tokens = [token for review in preprocessed_reviews for token in review]
+    token_freq = Counter(all_tokens)
+    avg_word_freq = sum(token_freq.values()) / len(token_freq)
+    print(avg_word_freq)
+
     return preprocessed_reviews
 
 

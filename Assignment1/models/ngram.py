@@ -1,4 +1,4 @@
-def compute_unigram_freq(tokens, min_freq=10): 
+def compute_unigram_freq(tokens, min_freq=15.5): 
     unigram_freq = {}
     for review in tokens:
         for token in review:
