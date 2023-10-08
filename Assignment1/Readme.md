@@ -1,7 +1,5 @@
 # CS6320 Assignment 1: N-gram Language Modeling
 
-Welcome to the repository for CS6320 Assignment 1, focusing on natural language processing and specifically on N-gram language models.
-
 ## Overview
 
 In this assignment, we've worked on preprocessing textual data, implementing N-gram language models, and evaluating them using the perplexity metric. This repository contains all the necessary code, datasets, and documentation related to our implementation.
@@ -34,16 +32,16 @@ We utilized the following libraries in our implementation:
 
 ## Group Member Contributions
 
-- **Satwik Arvapalli**:
-  - Computed the unigram frequencies.
-  - Worked on the Laplace smoothing technique.
-  - Implemented the perplexity calculation.
-  
 - **Abhinav Yalamaddi**:
   - Implemented the preprocessing steps.
   - Computed the bigram frequencies.
   - Worked on the add-k smoothing method.
   - Improved the perplexity calculation.
+  - 
+- **Satwik Arvapalli**:
+  - Computed the unigram frequencies.
+  - Worked on the Laplace smoothing technique.
+  - Implemented the perplexity calculation.
 
 Both members collaborated in debugging, testing, and validating the results.
 
