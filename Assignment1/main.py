@@ -11,11 +11,11 @@ def main():
     V = len(unigram_freq)
     val_tokens = preprocessing.handle_unseen_words(val_tokens, unigram_freq)
     
-    unsmoothed_perplexity = evaluation.compute_perplexity(val_tokens, unigram_freq, bigram_freq, V)
+    # unsmoothed_perplexity = evaluation.compute_perplexity(val_tokens, unigram_freq, bigram_freq, V)
     laplace_perplexity = evaluation.compute_perplexity(val_tokens, unigram_freq, bigram_freq, V, 'adjusted_laplace_smoothing')
     add_k_perplexity = evaluation.compute_perplexity(val_tokens, unigram_freq, bigram_freq, V, 'adjusted_add_k_smoothing', k=0.1)
     
-    print(f"Unsmoothed: {unsmoothed_perplexity:.2f}")
+    # print(f"Unsmoothed: {unsmoothed_perplexity:.2f}")
     print(f"Laplace Smoothed: {laplace_perplexity:.2f}")
     print(f"Add-k Smoothed: {add_k_perplexity:.2f}")
 

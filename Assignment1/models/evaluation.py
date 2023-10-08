@@ -12,8 +12,8 @@ def compute_perplexity(tokens, unigram_freq, bigram_freq, V, smoothing_method=No
                 prob = adjusted_laplace_smoothing(review[i-1], review[i], unigram_freq, bigram_freq, V)
             elif smoothing_method == 'adjusted_add_k_smoothing':
                 prob = adjusted_add_k_smoothing(review[i-1], review[i], unigram_freq, bigram_freq, V, k)
-            else:
-                prob = bigram_freq.get((review[i-1], review[i]), 0) / unigram_freq.get(review[i-1], 1)
+            # else:
+            #     prob = bigram_freq.get((review[i-1], review[i]), 0) / unigram_freq.get(review[i-1], 1)
 
             each_review_prob *= prob
         
