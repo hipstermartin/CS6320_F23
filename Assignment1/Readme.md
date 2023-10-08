@@ -1,15 +1,73 @@
-# Flow
+# CS6320 Assignment 1: N-gram Language Modeling
 
-Tokenization: It tokenizes the training and validation datasets using the tokenize_text function from the preprocessing module.
+Welcome to the repository for CS6320 Assignment 1, focusing on natural language processing and specifically on N-gram language models.
 
-Unigram and Bigram Frequencies: It calculates the unigram and bigram frequencies from the training tokens using the compute_unigram_freq and compute_bigram_freq functions from the ngram module.
+## Overview
 
-Vocabulary Size: It calculates the vocabulary size 
+In this assignment, we've worked on preprocessing textual data, implementing N-gram language models, and evaluating them using the perplexity metric. This repository contains all the necessary code, datasets, and documentation related to our implementation.
 
-V as the number of unique unigrams.
+## Repository Structure
 
-Handling Unseen Words: It replaces unseen words in the validation tokens with the "<UNK>" token using the handle_unseen_words function from the preprocessing module.
+- **src/**: Contains all the source code related to data preprocessing, N-gram model implementation, and evaluation.
+- **data/**: Contains the datasets used in this project.
+- **docs/**: Contains the detailed report (PDF) explaining our approach and findings.
 
-Perplexity Calculation: It calculates and prints the perplexity of the unsmoothed, Laplace smoothed, and Add-k smoothed models using the compute_perplexity function from the evaluation module.
+## Implementation Details
 
-## The `min_freq` parameter represents the minimum frequency a word must have in the training data to be included in the model's vocabulary; increasing `min_freq` trims the vocabulary by removing infrequent words, which can improve the model's generalization and reduce perplexity on unseen data by mitigating the impact of noise and outliers.
+### Data Input and Preprocessing
+
+Our first step was to preprocess the textual data to make it suitable for language modeling. The following steps were performed during preprocessing:
+
+- Convert all text to lowercase for uniformity.
+- Replace numbers with the `<NUM>` placeholder to generalize numeric data.
+- Manage punctuations by treating them as separate entities.
+- Introduce custom tokens like `<REVIEW_START>` and `<REVIEW_END>` to signify the beginning and end of reviews.
+- Analyze word frequencies and set a minimum frequency threshold of 15.5 to ensure that words below this threshold are treated as `<UNK>` tokens.
+
+### Libraries Used
+
+We utilized the following libraries in our implementation:
+
+- `re`: For regex-based text processing.
+- `collections`: Specifically the Counter class to compute word frequencies.
+- `math`: For logarithmic and exponential calculations.
+
+## Group Member Contributions
+
+- **Satwik Arvapalli**:
+  - Computed the unigram frequencies.
+  - Worked on the Laplace smoothing technique.
+  - Implemented the perplexity calculation.
+  
+- **Abhinav Yalamaddi**:
+  - Implemented the preprocessing steps.
+  - Computed the bigram frequencies.
+  - Worked on the add-k smoothing method.
+  - Improved the perplexity calculation.
+
+Both members collaborated in debugging, testing, and validating the results.
+
+## Feedback and Insights
+
+The project provided a balanced challenge between theory and hands-on implementation. Our collective effort spanned around 40 hours, and this hands-on approach significantly deepened our understanding of n-gram language models.
+
+## Getting Started
+
+To run the code in this repository:
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/hipstermartin/CS6320_F23/tree/main/Assignment1
+   ```
+
+2. Navigate to the `src/` directory.
+3. Execute the main script (details on this can be added based on the code structure).
+
+## Requirements
+
+- Python 3.x
+- Libraries: `re`, `collections`, `math`
+
+## License
+
+This project is open-sourced under the [MIT]((https://choosealicense.com/licenses/mit/)) License.
